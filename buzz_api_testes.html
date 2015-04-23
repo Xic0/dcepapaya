@@ -1,0 +1,90 @@
+<html>
+  <head>
+    <title>Buzz API - Testes</title>
+  </head>
+  <body>
+    <ul id="content"></ul>
+    <script>
+    function handleResponse(response) {
+        for (var i = 0; i < response.data.items.length; i++) {
+            var item = response.data.items[i];
+            document.getElementById("content").innerHTML += "<li>" + item.title + "</li>";
+        }
+    }
+    </script>
+
+    <script>
+    function getProfile(profile) {
+        if (profile.data.kind == "buzz#person" ) {
+            document.write('<table border=3><tr>');
+            document.write('<td align="center"><img src="' + profile.data.thumbnailUrl + '" /></td>');
+            document.write('<td align="center">' + profile.data.displayName + "<br />");
+            document.write('<a href="' + profile.data.profileUrl + '">' + profile.data.id + '</a>');
+            document.write('</td></tr></table>');
+        } else {
+            document.write("NOT A PERSON. . .");
+        }
+    }
+    </script>
+
+<!--   
+    <script>
+    function getProfile(profile) {
+        if (profile.data.kind == "buzz#person" ) {
+            document.write('<table border=3><tr>');
+            document.write('<td align="center"><img src="' + profile.data.thumbnailUrl + '" /></td>');
+            document.write('<td align="center">' + profile.data.displayName + "<br />");
+            document.write('<a href="' + profile.data.profileUrl + '">' + profile.data.id + '</a>');
+            //document.write(profile.data.urls.length);
+            document.write("<p>::Links::</p>");
+            for (var c = 0; c < profile.data.urls.length; c++) {
+                //document.write('<li>' + profile.data.urls[c].type + " -- " + profile.data.urls[c].value + '<br /></li>');
+                document.write("<a href='" + profile.data.urls[c].value + "'>" + profile.data.urls[c].type + "</a><br />");
+            }
+            document.write("<p>::Photos::</p>");
+            for (var c = 0; c < profile.data.photos.length; c++) {
+                //document.write('<li>' + profile.data.photos[c].type + " -- " + profile.data.photos[c].value + '<br /></li>');
+                document.write("<img src='" + profile.data.photos[c].value + "' alt='" + profile.data.photos[c].type + "' /><br />");
+            }
+            document.write('</td></tr></table>');
+        } else {
+            document.write("NOT A PERSON. . .");
+        }
+    }
+   
+    document.getElementById("card_photo").innerHTML += '<img src="' + profile.data.thumbnailUrl + '" />';
+    </script>
+-->
+
+<!--
+    <form name="SearchBox" method="GET">
+        <label>Google name or ID</label>
+        <input name="oque" type="text" value="">
+        <input type="submit" value="Fetch!" onClick="javascript:eval(window.open('https://www.googleapis.com/buzz/v1/people/116361873093894695965/@self?alt=json&callback=getProfile', this))">
+    </form>
+-->
+
+<!--
+    <script src="https://www.googleapis.com/buzz/v1/people/xicodax/@self?alt=json&callback=getProfile"></script>
+-->
+
+<!-- NÉLiTO 116361873093894695965 -->
+<!-- MEiRA 100102879618223717765 -->
+
+<!--   
+    <table id="card" border=3>
+        <thead>&nbsp;</thead>
+        <tr><td>&nbsp;</td><td align="center" valign="middle" id="card_photo"></td><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr><td>&nbsp;</td><td>&nbsp;</td><td align="center" valign="middle" id="card_name"></td><td>&nbsp;</td></tr>
+        <tr><td>&nbsp;</td><td>&nbsp;</td><td align="center" valign="middle" id="card_id"></td><td>&nbsp;</td></tr>
+        <tfoot>&nbsp;</tfoot>
+    </table>
+-->
+
+
+    <script src="https://www.googleapis.com/buzz/v1/people/dita.841/@self?alt=json&callback=getProfile"></script>
+    <script src="https://www.googleapis.com/buzz/v1/people/xicodax/@self?alt=json&callback=getProfile"></script>
+    <script src="https://www.googleapis.com/buzz/v1/people/daymio/@self?alt=json&callback=getProfile"></script>   
+   
+    </body>
+</html>
